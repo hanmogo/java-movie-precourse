@@ -2,39 +2,58 @@ package domain;
 
 public class Seat {
 
-    private String id;
-    private String seat_row;
-    private int seat_column;
-    private String grade;
-    private int price;
+    public enum SeatGrade{ // 등급과 가격이 함께 묶여야 데이터가 바뀔 위험성이 없음
+        S(18000), A(15000), B(12000);
 
-    public Seat(String id, String seat_row, int seat_column, String grade, int price) {
+        private int price;
 
-        this.id = id;
-        this.seat_row = seat_row;
-        this.seat_column = seat_column;
+        SeatGrade(int price){
+            this.price = price;
+        }
+        public int getPrice() {
+            return price;
+        }
+    }
+
+    private Long seatId;
+    private Long theaterId;
+    private String seatRow;
+    private int seatColumn;
+    private SeatGrade grade;
+
+    public Seat(Long seatId, Long theaterId, String seatRow, int seatColumn, SeatGrade grade) {
+
+        this.seatId = seatId;
+        this.theaterId = theaterId;
+        this.seatRow = seatRow;
+        this.seatColumn = seatColumn;
         this.grade = grade;
-        this.price = price;
 
     }
 
-    public String getId() {
-        return id;
+    public Long getSeatId() {
+        return seatId;
+    }
+
+    public Long getTheaterId() {
+        return theaterId;
     }
 
     public String getSeat_row() {
-        return seat_row;
+        return seatRow;
     }
 
     public int getSeat_column() {
-        return seat_column;
+        return seatColumn;
     }
 
-    public String getGrade() {
+    public SeatGrade getGrade() {
         return grade;
     }
 
     public int getPrice() {
-        return price;
+        return grade.getPrice();
     }
+
+
 }

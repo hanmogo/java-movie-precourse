@@ -5,24 +5,24 @@ import java.time.LocalDate;
 
 public class User {
 
-    private Long id;
+    private Long userId;
     private String name;
     private String email;
     private String phoneNum;
     private LocalDate birthDate;
-    private int ponit;
+    private int point;
 
-    public User(Long id, String name, String email, String phoneNum, LocalDate birthDate, int ponit) {
-        this.id = id;
+    public User(Long userId, String name, String email, String phoneNum, LocalDate birthDate, int point) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
         this.phoneNum = phoneNum;
         this.birthDate = birthDate;
-        this.ponit = ponit;
+        this.point = point;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
     public String getName() {
@@ -41,8 +41,8 @@ public class User {
         return birthDate;
     }
 
-    public int getPonit() {
-        return ponit;
+    public int getPoint() {
+        return point;
     }
 
 }
