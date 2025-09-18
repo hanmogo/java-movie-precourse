@@ -31,6 +31,7 @@ public class Seat {
 
     }
 
+    //getter
     public Long getSeatId() {
         return seatId;
     }

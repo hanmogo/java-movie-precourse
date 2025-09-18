@@ -12,6 +12,7 @@ public class Theater {
         this.totalSeat = totalSeat;
     }
 
+    //getter
     public Long getTheaterId() {
         return theaterId;
     }

@@ -12,6 +12,8 @@ public class ReservationSeat {
         this.seatId = seatId;
     }
 
+    //getter
+
     public Long getSeatId() {
         return seatId;
     }

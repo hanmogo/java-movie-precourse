@@ -14,6 +14,7 @@ public class Movie {
         this.runningTime = runningTime;
     }
 
+    //getter
     public Long getMovieId() {
         return movieId;
     }

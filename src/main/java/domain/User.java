@@ -21,6 +21,7 @@ public class User {
         this.point = point;
     }
 
+    //getter
     public Long getUserId() {
         return userId;
     }
@@ -45,4 +46,11 @@ public class User {
         return point;
     }
 
+    //사용할 포인트
+    public void usePoints(int pointsToUse){
+        if (pointsToUse > this.point) {
+            throw new IllegalArgumentException("보유한 포인트보다 많이 사용할 수 없습니다.");
+        }
+        this.point -= pointsToUse;
+    }
 }
