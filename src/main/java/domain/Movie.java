@@ -1,12 +1,14 @@
 package domain;
 
+import java.time.LocalDateTime;
+
 public class Movie {
 
     private Long movieId;
     private String title;
-    private String runningTime;
+    private Long runningTime;
 
-    public Movie(Long movieId, String title, String runningTime) {
+    public Movie(Long movieId, String title, Long runningTime) {
         this.movieId = movieId;
         this.title = title;
         this.runningTime = runningTime;
@@ -20,7 +22,7 @@ public class Movie {
         return title;
     }
 
-    public String getRunningTime() {
+    public Long getRunningTime() {
         return runningTime;
     }
 }
