@@ -6,9 +6,9 @@ public class Movie {
 
     private Long movieId;
     private String title;
-    private Long runningTime;
+    private int runningTime;
 
-    public Movie(Long movieId, String title, Long runningTime) {
+    public Movie(Long movieId, String title, int runningTime) {
         this.movieId = movieId;
         this.title = title;
         this.runningTime = runningTime;
@@ -23,7 +23,7 @@ public class Movie {
         return title;
     }
 
-    public Long getRunningTime() {
+    public int getRunningTime() {
         return runningTime;
     }
 }
