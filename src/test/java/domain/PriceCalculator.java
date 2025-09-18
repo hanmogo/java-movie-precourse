@@ -1,11 +1,11 @@
 package domain;
 
+import domain.enums.PaymentMethod;
+
 import java.time.LocalTime;
 import java.util.List;
 
-enum PaymentMethod{
-    CREDITCARD, CASH
-}
+
 
 public class PriceCalculator {
 

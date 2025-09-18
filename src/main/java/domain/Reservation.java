@@ -1,15 +1,19 @@
 package domain;
 
+import java.time.LocalDateTime;
+
 public class Reservation {
 
     private Long reservationId;
-    private String reservationTime;
+    private LocalDateTime reservationTime;
     private Long userId;
     private Long screenId;
 
-    public Reservation(Long reservationId, String reservationTime, Long userId, Long screenId) {
+    public Reservation(Long reservationId, LocalDateTime reservationTime, Long userId, Long screenId) {
         this.reservationId = reservationId;
         this.reservationTime = reservationTime;
+        this.userId = userId;
+        this.screenId = screenId;
     }
 
     //getter
@@ -17,7 +21,7 @@ public class Reservation {
         return reservationId;
     }
 
-    public String getReservationTime() {
+    public LocalDateTime getReservationTime() {
         return reservationTime;
     }
 

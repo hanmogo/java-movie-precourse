@@ -17,6 +17,10 @@ public class Screening {
     }
 
     //getter
+    public Long getScreeningId() {
+        return screeningId;
+    }
+
     public Long getmMovieId() {
         return screeningId;
     }
