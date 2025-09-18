@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.net.Authenticator;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -89,6 +90,59 @@ class PriceCalculatorTest {
         //then
         assertThat(actualPrice).isEqualTo(expectedPrice);
         System.out.println(actualPrice);
+    }
+
+    @Test
+    @DisplayName("할인된 금액에서 포인트를 사용하여 추가 할인을 받을 수 있다.")
+    void applyPoint(){
+        //given
+        int PriceAfterDiscounts = 16000;
+        LocalDate birthDate = LocalDate.of(2002, 6, 3);
+        User user = new User(1L, "test", "test@test.com",
+                "010-0000-0000", birthDate, 5000);
+
+        PriceCalculator priceCalculator = new PriceCalculator();
+        int expectedFinalPrice = 11000;
+
+        //when
+        int actualFinalPrice = priceCalculator.calulateFinalPrice(PriceAfterDiscounts, user, user.getPoint());
+
+        //then
+        assertThat(actualFinalPrice).isEqualTo(expectedFinalPrice);
+
+    }
+
+    @Test
+    @DisplayName("신용카드 결제는 5% 할인합니다")
+    void applyPaymentMethodDiscountCreditCard(){
+        //given
+        int basePrice = 11000;
+        PaymentMethod paymentMethod = PaymentMethod.CREDITCARD;
+
+        PriceCalculator priceCalculator = new PriceCalculator();
+        int expectedFinalPrice = 10450;
+
+        //when
+        int actualFinalPrice = priceCalculator.applyPaymentDiscount(basePrice, paymentMethod);
+
+        //then
+        assertThat(actualFinalPrice).isEqualTo(expectedFinalPrice);
+    }
+
+    @Test
+    @DisplayName("현금 결제는 2% 할인합니다")
+    void applyPaymentMethodDiscountCash(){
+        int basePrice = 11000;
+        PaymentMethod paymentMethod = PaymentMethod.CASH;
+
+        PriceCalculator priceCalculator = new PriceCalculator();
+        int expectedFinalPrice = 10780;
+
+        //when
+        int actualFinalPrice = priceCalculator.applyPaymentDiscount(basePrice, paymentMethod);
+
+        //then
+        assertThat(actualFinalPrice).isEqualTo(expectedFinalPrice);
     }
 
 }

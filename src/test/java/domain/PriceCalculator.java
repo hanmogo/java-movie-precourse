@@ -1,8 +1,11 @@
 package domain;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+
+enum PaymentMethod{
+    CREDITCARD, CASH
+}
 
 public class PriceCalculator {
 
@@ -45,5 +48,28 @@ public class PriceCalculator {
         }
         return basePrice;
     }
+
+    //유저포인트 사용으로 할인
+    public int calulateFinalPrice(int basePrice, User user, int point) {
+
+        user.usePoints(point);
+
+        return basePrice - point;
+    }
+
+
+
+    public int applyPaymentDiscount(int basePrice, PaymentMethod paymentMethod) {
+
+        if(paymentMethod == PaymentMethod.CASH) {
+            return (int) (basePrice * 0.9);
+        }
+        if(paymentMethod == PaymentMethod.CREDITCARD) {
+            return (int) (basePrice * 0.5);
+        }
+        return basePrice;
+    }
+
+
 }
 
