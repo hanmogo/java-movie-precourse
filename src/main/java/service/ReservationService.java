@@ -26,9 +26,6 @@ public class ReservationService {
         // 좌석 중복 검사
         validateSeats(screening, selectedSeats);
 
-        //유효성 검증
-        validateSeats(screening, selectedSeats);
-
         // 가격 계산
         int basePrice = calculator.calculateBasePrice(selectedSeats);
         int priceAfterDiscounts = calculator.applyDiscounts(basePrice, screening);
