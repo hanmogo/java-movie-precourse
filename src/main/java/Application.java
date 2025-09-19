@@ -22,13 +22,15 @@ public class Application {
         ReservationService reservationService = new ReservationService(calculator);
 
         // 모든 객체가 잘 연결되었는지 확인하기 위한 테스트 실행
-        // 실제 제출 시에는 이 부분은 없어도 무방합니다.
         runSampleReservation(reservationService);
     }
 
     // 모든 로직이 잘 동작하는지 확인하기 위한 예시 메서드
     public static void runSampleReservation(ReservationService reservationService) {
-        System.out.println("====== 샘플 예매 실행 ======");
+
+        System.out.println("한글 왜 안댐?");
+
+        System.out.println("====== 샘플 ======");
 
         // given: 예매에 필요한 데이터 준비
         User user = new User(1L, "김철수", "test@test.com", "010-1234-5678", LocalDate.of(1995, 5, 10), 10000);
@@ -43,7 +45,7 @@ public class Application {
         // when: 예매 서비스 실행
         try {
             ReservationResult result = reservationService.reserve(
-                    user, screening, selectedSeats, movie, pointsToUse, paymentMethod, calculator);
+                    user, screening, selectedSeats, movie, pointsToUse, paymentMethod);
 
             // then: 결과 확인
             System.out.println("예매가 성공적으로 완료되었습니다.");

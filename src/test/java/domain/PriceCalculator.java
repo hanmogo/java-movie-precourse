@@ -62,10 +62,10 @@ public class PriceCalculator {
     public int applyPaymentDiscount(int basePrice, PaymentMethod paymentMethod) {
 
         if(paymentMethod == PaymentMethod.CASH) {
-            return (int) (basePrice * 0.9);
+            return (int) (basePrice * 0.98);
         }
         if(paymentMethod == PaymentMethod.CREDITCARD) {
-            return (int) (basePrice * 0.5);
+            return (int) (basePrice * 0.95);
         }
         return basePrice;
     }
