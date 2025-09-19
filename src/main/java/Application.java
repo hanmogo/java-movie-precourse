@@ -22,7 +22,6 @@ public class Application {
         ReservationService reservationService = new ReservationService(calculator);
 
         // 모든 객체가 잘 연결되었는지 확인하기 위한 테스트 실행
-        // 실제 제출 시에는 이 부분은 없어도 무방합니다.
         runSampleReservation(reservationService);
     }
 
