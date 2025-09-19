@@ -22,11 +22,8 @@ public class ReservationService {
 
 
     public ReservationResult reserve(User user, Screening screening, List<Seat> selectedSeats, Movie movie,
-                        int pointsToUse, PaymentMethod paymentMethod, PriceCalculator calculator) {
+                        int pointsToUse, PaymentMethod paymentMethod) {
         // 좌석 중복 검사
-        validateSeats(screening, selectedSeats);
-
-        //유효성 검증
         validateSeats(screening, selectedSeats);
 
         // 가격 계산

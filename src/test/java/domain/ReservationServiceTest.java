@@ -31,12 +31,12 @@ public class ReservationServiceTest {
         PaymentMethod paymentMethod = PaymentMethod.CASH;
         PriceCalculator calculator = new PriceCalculator();
         // 먼저 seat1 좌석을 예약해서 선점 상태로 만듦
-        reservationService.reserve(user, screening, List.of(seat1), movie, pointsToUse, paymentMethod, calculator);
+        reservationService.reserve(user, screening, List.of(seat1), movie, pointsToUse, paymentMethod);
 
         // when, then
         // 이미 예약된 seat1을 포함하여 다시 예매를 시도하면 예외가 발생해야 함
         assertThatThrownBy(() -> {
-            reservationService.reserve(user, screening, List.of(seat1, seat2), movie, pointsToUse, paymentMethod, calculator);
+            reservationService.reserve(user, screening, List.of(seat1, seat2), movie, pointsToUse, paymentMethod);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이미 예약된 좌석이 포함되어 있습니다.");
@@ -63,7 +63,7 @@ public class ReservationServiceTest {
 
         // when
         ReservationResult result = reservationService.reserve(
-                user, screening, selectedSeats, movie, pointsToUse, paymentMethod, calculator);
+                user, screening, selectedSeats, movie, pointsToUse, paymentMethod);
 
         // then
         assertThat(result.getFinalPrice()).isEqualTo(expectedFinalPrice);
